@@ -10,7 +10,7 @@ $("#searchBtn").on("click", function(event) {
 
     movie = $("#search").val();
 
-    var queryMovieURL = "https://www.omdbapi.com/?t=" + movie + "&apikey=trilogy";
+    var queryMovieURL = "https://www.omdbapi.com/?t=" + escape(movie) + "&apikey=trilogy";
 
     $.ajax({
       url: queryMovieURL,
@@ -30,7 +30,7 @@ $("#searchBtn").on("click", function(event) {
 
       console.log(response);
 
-      $("#movie-input").val("");
+      $("#search").val("");
 
   
     })
@@ -88,8 +88,10 @@ $("#searchBtn").on("click", function(event) {
 
 /*Yating's part */
           var searchResult = $("#search").val();
+
+          var year = $("#year").val();
           console.log(searchResult);
-          var queryYoutubeURL ="https://www.googleapis.com/youtube/v3/search?part=snippet&order=date&q="+ escape(searchResult)  +"+%20trailer&type=video&videoDefinition=high&key=";
+          var queryYoutubeURL ="https://www.googleapis.com/youtube/v3/search?part=snippet&order=date&q="+ escape(searchResult)+ year  +"+%20trailer&type=video&videoDefinition=high&key=";
           var apiKey = "AIzaSyAoUpHDyYUhHngLH318GbQdHVDHiNPLFXQ";
           $.ajax({
                   url: queryYoutubeURL + apiKey,
