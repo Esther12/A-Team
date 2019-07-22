@@ -23,9 +23,10 @@ $("#find-movie").on("click", function(event) {
       $("#poster").attr("src",response.Poster);
       $("#actors").html("Actors: " + response.Actors);
       $("#duration").html("Duration: " + response.Runtime);
-      $("#genre").html("Genre: "  + response.Genre)
-      $("#rating").html("Rating: " + response.imdbRating)
-      $(".writer").html("Writer: "  + response.Writer)
+      $("#genre").html("Genre: "  + response.Genre);
+      $("#rating").html("Rating: " + response.imdbRating);
+      $(".writer").html("Writer: "  + response.Writer);
+      $("#director").html("Director: " + response.Director);
 
       console.log(response);
 
