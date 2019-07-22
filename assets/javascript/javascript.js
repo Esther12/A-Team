@@ -80,10 +80,8 @@ $("#searchBtn").on("click", function(event) {
                   }
 
             
-            }
+            });
             
-
-                  );
             });
 
 /*Yating's part */
