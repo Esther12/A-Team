@@ -33,7 +33,7 @@
     <div class="genre"></div>
     <div class="imdbrating"></div>
     <div class="writer"></div>
-  
+    <div class="director"></div>
     <div class="plot"></div>
    <img src="" class ="poster">
 
@@ -67,7 +67,7 @@
           $(".genre").html("Genre: "  + response.Genre)
           $(".imdbrating").html("imdbRating: " + response.imdbRating)
           $(".writer").html("Writer: "  + response.Writer)
-    
+          $(".director").html("Director: " + response.Director);
           console.log(response);
 
           $("#movie-input").val("");
