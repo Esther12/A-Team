@@ -2,6 +2,8 @@ var movie;
 
 var p;
 
+var publicYears;
+
 $("#searchBtn").on("click", function(event) {
 
  // Sheleeza's Part    
@@ -39,6 +41,8 @@ $("#searchBtn").on("click", function(event) {
       $("#title").html("Title: " + response.Title);
     //  $("").html("Rating: " + response.Ratings[1].Value + " Rotten Tomatoes");
       $("#year").html("Released: " + response.Released);
+      publicYears = response.Year;
+      console.log(publicYears);
       $("#directors").html("Plot: " +response.Plot);
       $("#poster").attr("src",response.Poster);
       $("#actors").html("Actors: " + response.Actors);
@@ -102,8 +106,8 @@ $("#searchBtn").on("click", function(event) {
 
   function getYoutubeAPI(){
 
-    var searchResult = $("#search").val();
-    var queryYoutubeURL ="https://www.googleapis.com/youtube/v3/search?part=snippet&order=date&q="+ escape(searchResult)+"+%20trailer&type=video&videoDefinition=high&key=";
+    var searchResult = $("#search").val() +"+"+ publicYears;
+    var queryYoutubeURL ="https://www.googleapis.com/youtube/v3/search?part=snippet&order=relevance&q="+escape (searchResult) +"+trailer&relevanceLanguage=en&type=video&videoDuration=short&key=";
     var apiKey = "AIzaSyAoUpHDyYUhHngLH318GbQdHVDHiNPLFXQ";
     $.ajax({
             url: queryYoutubeURL + apiKey,
