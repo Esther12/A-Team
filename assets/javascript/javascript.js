@@ -4,6 +4,8 @@ var p;
 
 var publicYears;
 
+var actors; 
+
 $("#searchBtn").on("click", function(event) {
 
  // Sheleeza's Part    
@@ -13,20 +15,17 @@ $("#searchBtn").on("click", function(event) {
     getMovieAPI();
 
     
-/*   Jenny's part   */
 
-      p = $("#actors").text();
-
-      getGiphyAPI();
-// console.log(p);
 
 
 /*Yating's part */
 
-          var year = $("#year").val();
-
           getYoutubeAPI();
 
+ /*   Jenny's part   */
+
+      getGiphyAPI();
+// console.log(p);
   });
 
 
@@ -41,11 +40,13 @@ $("#searchBtn").on("click", function(event) {
       $("#title").html("Title: " + response.Title);
     //  $("").html("Rating: " + response.Ratings[1].Value + " Rotten Tomatoes");
       $("#year").html("Released: " + response.Released);
-      publicYears = response.Year;
+      publicYears = response.Year;// this is the publish year
       console.log(publicYears);
       $("#directors").html("Plot: " +response.Plot);
       $("#poster").attr("src",response.Poster);
       $("#actors").html("Actors: " + response.Actors);
+      actors = response.Actors; // all the actors in here!!!
+      console.log(actors);
       $("#duration").html("Duration: " + response.Runtime);
       $("#genre").html("Genre: "  + response.Genre);
       $("#rating").html("Rating: " + response.imdbRating);
