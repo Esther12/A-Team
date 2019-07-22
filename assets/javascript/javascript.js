@@ -1,19 +1,19 @@
-$("#find-movie").on("click", function(event) {
+var movie;
 
-     
+var p;
+
+$("#searchBtn").on("click", function(event) {
+
+ // Sheleeza's Part    
     event.preventDefault();
     
 
-    var movie = $("#search").val();
+    movie = $("#search").val();
 
-
-    var queryURL = "https://www.omdbapi.com/?t=" + movie + "&apikey=trilogy";
-          
-      
-
+    var queryMovieURL = "https://www.omdbapi.com/?t=" + movie + "&apikey=trilogy";
 
     $.ajax({
-      url: queryURL,
+      url: queryMovieURL,
       method: "GET"
     }).then(function(response) {
       $("#title").html("Title: " + response.Title);
@@ -36,12 +36,71 @@ $("#find-movie").on("click", function(event) {
     })
 
     
-    
-    /*$.ajax({
-      url: queryURL,
-      method: "GET"
-    }).then(function(response) {
-      $("#movie-view").text(JSON.stringify(response));
-    });*/
+/*   Jenny's part   */
+
+      p = $("#actors").text()
+// console.log(p);
+      var queryGifURL = "https://api.giphy.com/v1/gifs/search?api_key=6kzr50l8dlgEaOOVqe1VMiOwUmuGt3p6&q=" 
+            + p + "&limit=1&offset=0&lang=en";
+
+// console.log(queryURL);
+      $.ajax({
+            url: queryGifURL,
+            method:"GET"
+            })
+      .then(function(response){
+            console.log( 'got a response: ', response);
+                var results = response.data;
+            //   for (var i = 0; i < results.length; i++) {
+            //       var actorDiv = $("<img>");
+            //   }
+            console.log(results);
+              //var image = results[0].images.fixed_height_still.url;
+              //console.log(image);
+              $("#actorGif").append(`<img src = "${results[0].images.downsized_still.url}" 
+              data-still="${results[0].images.downsized_still.url}" 
+              data-animate="${results[0].images.downsized.url} " data-state="still" class = "gif ">`);
+
+                    
+              $("#actorGif").on("click",".gif", function(){
+                        
+                  var state = $(this).attr("data-state");
+
+                  if(state == "still"){
+                      console.log("still");
+                      var animateImgAddress = $(this).attr("data-animate");
+                          $(this).attr("src", animateImgAddress);
+                          $(this).attr("data-state","animate");
+                      }
+                  else{
+                  console.log("animate")
+                  var animateImgAddress = $(this).attr("data-still");
+                        $(this).attr("src", animateImgAddress);
+                        $(this).attr("data-state","still")
+                  }
+
+            
+            }
+            
+
+                  );
+            });
+
+/*Yating's part */
+          var searchResult = $("#search").val();
+          console.log(searchResult);
+          var queryYoutubeURL ="https://www.googleapis.com/youtube/v3/search?part=snippet&order=date&q="+ escape(searchResult)  +"+%20trailer&type=video&videoDefinition=high&key=";
+          var apiKey = "AIzaSyAoUpHDyYUhHngLH318GbQdHVDHiNPLFXQ";
+          $.ajax({
+                  url: queryYoutubeURL + apiKey,
+                  method:"GET"
+              }).then(function(respond){
+                      console.log(queryYoutubeURL+apiKey);// the API link
+                      console.log(respond.items[0].id.videoId);//get the video ids
+                      var result = respond.items[0].id.videoId;//store the video 
+                      var videoSrc = "https://www.youtube.com/embed/"+result;
+                      console.log(videoSrc);
+                      $("#videoTrailer").attr("src", videoSrc);
+              })
 
   });
