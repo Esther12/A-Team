@@ -1,19 +1,39 @@
-$("#find-movie").on("click", function(event) {
+var movie;
 
-     
+var p;
+
+$("#searchBtn").on("click", function(event) {
+
+ // Sheleeza's Part    
     event.preventDefault();
+    movie = $("#search").val();
+
+    getMovieAPI();
+
     
+/*   Jenny's part   */
 
-    var movie = $("#search").val();
+      p = $("#actors").text();
+
+      getGiphyAPI();
+// console.log(p);
 
 
-    var queryURL = "https://www.omdbapi.com/?t=" + movie + "&apikey=trilogy";
-          
-      
+/*Yating's part */
 
+          var year = $("#year").val();
+
+          getYoutubeAPI();
+
+  });
+
+
+
+  function getMovieAPI(){
+    var queryMovieURL = "https://www.omdbapi.com/?t=" + escape(movie) + "&apikey=trilogy";
 
     $.ajax({
-      url: queryURL,
+      url: queryMovieURL,
       method: "GET"
     }).then(function(response) {
       $("#title").html("Title: " + response.Title);
@@ -30,18 +50,70 @@ $("#find-movie").on("click", function(event) {
 
       console.log(response);
 
-      $("#movie-input").val("");
+      $("#search").val("");
+    });
+  }
 
-  
-    })
+  function getGiphyAPI(){
+          var queryGifURL = "https://api.giphy.com/v1/gifs/search?api_key=6kzr50l8dlgEaOOVqe1VMiOwUmuGt3p6&q=" 
+          + p + "&limit=1&offset=0&lang=en";
 
-    
-    
-    /*$.ajax({
-      url: queryURL,
-      method: "GET"
-    }).then(function(response) {
-      $("#movie-view").text(JSON.stringify(response));
-    });*/
+      // console.log(queryURL);
+      $.ajax({
+          url: queryGifURL,
+          method:"GET"
+          })
+      .then(function(response){
+          console.log( 'got a response: ', response);
+              var results = response.data;
+          //   for (var i = 0; i < results.length; i++) {
+          //       var actorDiv = $("<img>");
+          //   }
+          console.log(results);
+            //var image = results[0].images.fixed_height_still.url;
+            //console.log(image);
+            $("#actorGif").append(`<img src = "${results[0].images.downsized_still.url}" 
+            data-still="${results[0].images.downsized_still.url}" 
+            data-animate="${results[0].images.downsized.url} " data-state="still" class = "gif ">`);
 
-  });
+                  
+            $("#actorGif").on("click",".gif", function(){
+                      
+                var state = $(this).attr("data-state");
+
+                if(state == "still"){
+                    console.log("still");
+                    var animateImgAddress = $(this).attr("data-animate");
+                        $(this).attr("src", animateImgAddress);
+                        $(this).attr("data-state","animate");
+                    }
+                else{
+                console.log("animate");
+                var animateImgAddress = $(this).attr("data-still");
+                      $(this).attr("src", animateImgAddress);
+                      $(this).attr("data-state","still");
+                };
+
+          
+          });
+          
+          });
+  }
+
+  function getYoutubeAPI(){
+
+    var searchResult = $("#search").val();
+    var queryYoutubeURL ="https://www.googleapis.com/youtube/v3/search?part=snippet&order=date&q="+ escape(searchResult)+"+%20trailer&type=video&videoDefinition=high&key=";
+    var apiKey = "AIzaSyAoUpHDyYUhHngLH318GbQdHVDHiNPLFXQ";
+    $.ajax({
+            url: queryYoutubeURL + apiKey,
+            method:"GET"
+        }).then(function(respond){
+                console.log(queryYoutubeURL+apiKey);// the API link
+                console.log(respond.items[0].id.videoId);//get the video ids
+                var result = respond.items[0].id.videoId;//store the video 
+                var videoSrc = "https://www.youtube.com/embed/"+result;
+                console.log(videoSrc);
+                $("#videoTrailer").attr("src", videoSrc);
+        });
+  }
