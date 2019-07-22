@@ -56,3 +56,15 @@ span{font-family: 'Source Code Pro', monospace;
   top: 0;
 
 }
+.searchBtn {
+  background: #424242;
+  border-radius: 0;
+  color: #fff;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #1c1c1c;}
+}
+.search.btn-search:active:link, .searchBtn:visited {
+  color: #fff;
+}
+
