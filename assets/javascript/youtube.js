@@ -4,7 +4,7 @@ $("#searchBtn").on("click", function(){
     debugger;
     var searchResult = $("#search").val();
     console.log(searchResult);
-    var queryURL ="https://www.googleapis.com/youtube/v3/search?part=snippet&order=date&q="+ searchResult +"&type=video&videoDefinition=high&key=";
+    var queryURL ="https://www.googleapis.com/youtube/v3/search?part=snippet&order=date&q="+ searchResult +"+trailer&type=video&videoDefinition=high&key=";
     var apiKey = "AIzaSyB_mvhNnQ4o7ytHVZHyuGz3Hv1HwgZulf4";
     $.ajax({
             url: queryURL + apiKey,
