@@ -33,7 +33,7 @@ $("#searchBtn").on("click", function(event) {
       $("#search").val("");
 
   
-    })
+    });
 
     
 /*   Jenny's part   */
@@ -77,13 +77,11 @@ $("#searchBtn").on("click", function(event) {
                   var animateImgAddress = $(this).attr("data-still");
                         $(this).attr("src", animateImgAddress);
                         $(this).attr("data-state","still")
-                  }
+                  };
 
             
-            }
+            });
             
-
-                  );
             });
 
 /*Yating's part */
@@ -103,6 +101,6 @@ $("#searchBtn").on("click", function(event) {
                       var videoSrc = "https://www.youtube.com/embed/"+result;
                       console.log(videoSrc);
                       $("#videoTrailer").attr("src", videoSrc);
-              })
+              });
 
   });
