@@ -7,12 +7,12 @@ $("#searchBtn").on("click", function(){
 
 
 // console.log(p);
-var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=6kzr50l8dlgEaOOVqe1VMiOwUmuGt3p6&q=" 
+var queryGifURL = "https://api.giphy.com/v1/gifs/search?api_key=6kzr50l8dlgEaOOVqe1VMiOwUmuGt3p6&q=" 
       + p + "&limit=1&offset=0&lang=en";
 
 // console.log(queryURL);
 $.ajax({
-      url: queryURL,
+      url: queryGifURL,
       method:"GET"
       })
 .then(function(response){
