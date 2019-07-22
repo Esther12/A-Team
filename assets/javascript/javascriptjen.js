@@ -3,7 +3,7 @@
 // var p = $('#search').val();
  var p = $("#actors").text();
 $("#searchBtn").on("click", function(){
- debugger;
+//  debugger;
 
 
 // console.log(p);
