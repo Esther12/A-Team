@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Favorite Movies</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
+ 
+</head>
+
+<body>
+
+
+  <div class="container">
+    <h1>VHS Players</h1>
+
+    
+    <form id="movie-form">
+      <label for="movie-input">Search for a movie</label>
+      <input type="text" id="movie-input"><br>
+
+      
+      <input id="find-movie" type="submit" value="Movie Search">
+    </form>
+
+    
+    <div id="movie-view"></div>
+    <div class="title"></div>
+    <div class="rating"></div>
+    <div class="released"></div>
+    <div class="actors"></div>
+    <div class="runtime"></div>
+    <div class="genre"></div>
+    <div class="imdbrating"></div>
+    <div class="writer"></div>
+  
+    <div class="plot"></div>
+   <img src="" class ="poster">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ 
+    <script type="text/javascript">
+      
+      $("#find-movie").on("click", function(event) {
+
+     
+        event.preventDefault();
+        
+    
+        var movie = $("#movie-input").val();
+
+    
+        var queryURL = "https://www.omdbapi.com/?t=" + movie + "&apikey=trilogy";
+              
+          
+
+
+        $.ajax({url: queryURL,method: "GET"})
+        .then(function(response) {
+          $(".title").html("Title: " + response.Title);
+          $(".rating").html("Rating: " + response.Ratings[1].Value + " Rotten Tomatoes");
+          $(".released").html("Released: " + response.Released);
+          $(".plot").html("Plot: " +response.Plot);
+          $(".poster").attr("src",response.Poster);
+          $(".actors").html("Actors: " + response.Actors);
+          $(".runtime").html("Runtime: " + response.Runtime);
+          $(".genre").html("Genre: "  + response.Genre)
+          $(".imdbrating").html("imdbRating: " + response.imdbRating)
+          $(".writer").html("Writer: "  + response.Writer)
+    
+          console.log(response);
+
+          $("#movie-input").val("");
+
+      
+        })
+
+        
+        
+        /*$.ajax({
+          url: queryURL,
+          method: "GET"
+        }).then(function(response) {
+          $("#movie-view").text(JSON.stringify(response));
+        });*/
+
+      });
+    </script>
+  </div>
+</body>
+
+</html>
