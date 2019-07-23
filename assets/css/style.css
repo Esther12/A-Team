@@ -1,17 +1,17 @@
-title{font-family: 'Source Code Pro', monospace;
-  color: black;
+title{
+  color:grey;
   font-size: 20px;
   }
-  body {font-family: 'Source Code Pro', monospace;
+  body {font-family: 'Darker Grotesque', sans-serif;
   font-size: 20px;
-  background-color:rgb(150, 142, 131);
+  background-color: black;
   height: 1000px;
   }
-  h1{font-family: 'Source Code Pro', monospace;
+  h1{
   font-size: 24px;
   
   }
-  h2{font-family: 'Source Code Pro', monospace;
+  h2{
   font-size: 20px;
   }
   img.resize {
@@ -26,29 +26,29 @@ padding: 12px;
 border-radius: 25px;
 }
   
-  span{font-family: 'Source Code Pro', monospace;
+  span{font-family: 'Raleway', sans-serif;
       font-size: 14px;}
      
   .dropbtn {
-      font-family: 'Source Code Pro', monospace;
-      background-color: #1f0303;
-      color: rgb(214, 133, 133);
+    font-family: 'Raleway', sans-serif;
+      background-color:black;
+      color:grey;
       padding: 12px;
       font-size: 20px;
       border: none;
     }
     .dropdown {
       display: inline-block;
-      font-family: 'Source Code Pro', monospace;
+      font-family: 'Raleway', sans-serif;
     }
     .dropdown-content {
       display: none;
       position: absolute;
-      background-color: #1f0303;
+      background-color: grey
       min-width: 100px;
-      box-shadow: 0px 8px 16px 0px rgba(175, 128, 128, 0.733);
+      box-shadow: 0px 8px 16px 0px );
       z-index: 1;
-      font-family: 'Source Code Pro', monospace;
+      font-family: 'Raleway', sans-serif;
     }
     .dropdown-content a {
       color: black;
@@ -56,9 +56,9 @@ border-radius: 25px;
       text-decoration: none;
       display: block;
     }
-    .dropdown-content a:hover {background-color: #ddd;}
+    .dropdown-content a:hover {background-color:grey;}
     .dropdown:hover .dropdown-content {display: block;}
-    .dropdown:hover .dropbtn {background-color: #0d2b0e;}
+    .dropdown:hover .dropbtn {background-color: #000000;}
   #menuContainer {
     position: relative;
     text-outline: 0;
@@ -67,6 +67,13 @@ border-radius: 25px;
   html {
     margin: 40px auto;
   }
+
+  .wrapper {
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 50px; 
+  }
+
   .btn-search {
       background: #424242;
       border-radius: 12px;
@@ -82,4 +89,42 @@ border-radius: 25px;
       background: #1c1c1c;
       color: #fff;
     }
- 
+    .row{
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0 4px;
+    }
+
+ .column{
+   flex: 50%;
+   max-width: 50%;
+   padding:0 4px;
+
+  
+ }
+/* .column img{
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+} */
+.thumbnail {
+  position: relative;
+ height: 300px;
+  overflow: hidden;
+  border: 3px solid black;
+  padding: 3px;
+}
+.thumbnail img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  /* height: 100%;
+  width: auto; */
+  -webkit-transform: translate(-50%,-50%);
+      -ms-transform: translate(-50%,-50%);
+          transform: translate(-50%,-50%);
+}
+.thumbnail img.portrait {
+  width: 100%;
+  height: auto;
+}
