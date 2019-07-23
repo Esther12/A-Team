@@ -28,8 +28,18 @@ $("#searchBtn").on("click", function(event) {
       
 
  /*   Jenny's part   */
-
-      getGiphyAPI();
+      $("#actorGif").empty();
+      setTimeout(() =>{
+        var str = actors.split(",");
+        console.log(str);
+        for (var i=0; i < str.length; i++){
+                 getGiphyAPI(str[i]);
+                
+        }
+      },2000);
+    
+     
+      
 // console.log(p);
   });
 
@@ -65,11 +75,12 @@ $("#searchBtn").on("click", function(event) {
     });
   }
 
-  function getGiphyAPI(){
+  function getGiphyAPI(img){
+    
           var queryGifURL = "https://api.giphy.com/v1/gifs/search?api_key=6kzr50l8dlgEaOOVqe1VMiOwUmuGt3p6&q=" 
-          + p + "&limit=1&offset=0&lang=en";
+          + escape(img) + "&limit=1&offset=0&lang=en";
 
-      // console.log(queryURL);
+       console.log(queryGifURL);
       $.ajax({
           url: queryGifURL,
           method:"GET"
@@ -83,32 +94,42 @@ $("#searchBtn").on("click", function(event) {
           console.log(results);
             //var image = results[0].images.fixed_height_still.url;
             //console.log(image);
-            $("#actorGif").append(`<img src = "${results[0].images.downsized_still.url}" 
-            data-still="${results[0].images.downsized_still.url}" 
-            data-animate="${results[0].images.downsized.url} " data-state="still" class = "gif ">`);
-
+            
                   
-            $("#actorGif").on("click",".gif", function(){
+            // $("#actorGif").on("click",".gif", function(){
+            // var search = $(this).attr("id");
+            // getGiphyAPI(search);
+            // });
+
+            // $("#searchBtn").on("click", function(event){
+            //   event.preventDefault();
+
+            //   var search = $("#search").val();
+            //   $("#actorGif").append()
+            // });
+
+            $("#actorGif").append(`<img src = "${results[0].images.downsized_still.url}" >
+            `);
                       
-                var state = $(this).attr("data-state");
+                // var state = $(this).attr("data-state");
 
-                if(state == "still"){
-                    console.log("still");
-                    var animateImgAddress = $(this).attr("data-animate");
-                        $(this).attr("src", animateImgAddress);
-                        $(this).attr("data-state","animate");
-                    }
-                else{
-                console.log("animate");
-                var animateImgAddress = $(this).attr("data-still");
-                      $(this).attr("src", animateImgAddress);
-                      $(this).attr("data-state","still");
-                };
+                // if(state == "still"){
+                //     console.log("still");
+                //     var animateImgAddress = $(this).attr("data-animate");
+                //         $(this).attr("src", animateImgAddress);
+                //         $(this).attr("data-state","animate");
+                //     }
+                // else{
+                // console.log("animate");
+                // var animateImgAddress = $(this).attr("data-still");
+                //       $(this).attr("src", animateImgAddress);
+                //       $(this).attr("data-state","still");
+                // };
 
           
           });
           
-          });
+    
   }
 
   function getYoutubeAPI(){

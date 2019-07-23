@@ -24,9 +24,11 @@ $.ajax({
       console.log(results);
         //var image = results[0].images.fixed_height_still.url;
         //console.log(image);
+        $("#actorGif").empty();
+        for (var i=0; i < p.length; i++){
         $("#actorGif").append(`<img src = "${results[0].images.downsized_still.url}" 
-        data-still="${results[0].images.downsized_still.url}" 
-        data-animate="${results[0].images.downsized.url} " data-state="still" class = "gif ">`);
+        `);
+        }
 
                
         $("#actorGif").on("click",".gif", function(){
