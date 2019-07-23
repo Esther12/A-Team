@@ -90,7 +90,8 @@ $("#searchBtn").on("click", function(event) {
               var results = response.data;
             for (var i = 0; i < results.length; i++) {
               $("#actorGif").append(`<img src = "${results[i].images.downsized_still.url}" 
-              >`);
+              data-still="${results[i].images.downsized_still.url}" 
+                    data-animate="${results[i].images.downsized.url} " data-state="still" class = "gif ">`);
               }
           //   }
           console.log(results);
@@ -98,41 +99,29 @@ $("#searchBtn").on("click", function(event) {
             //console.log(image);
             
                   
-            // $("#actorGif").on("click",".gif", function(){
-            // var search = $(this).attr("id");
-            // getGiphyAPI(search);
-            // });
+            $("#actorGif").on("click",".gif", function(){
+           
+                var state = $(this).attr("data-state");
 
-            // $("#searchBtn").on("click", function(event){
-            //   event.preventDefault();
-
-            //   var search = $("#search").val();
-            //   $("#actorGif").append()
-            // });
-
-            $("#actorGif").append(`<img src = "${results[0].images.downsized_still.url}" >
-            `);
-                      
-                // var state = $(this).attr("data-state");
-
-                // if(state == "still"){
-                //     console.log("still");
-                //     var animateImgAddress = $(this).attr("data-animate");
-                //         $(this).attr("src", animateImgAddress);
-                //         $(this).attr("data-state","animate");
-                //     }
-                // else{
-                // console.log("animate");
-                // var animateImgAddress = $(this).attr("data-still");
-                //       $(this).attr("src", animateImgAddress);
-                //       $(this).attr("data-state","still");
-                // };
+                if(state == "still"){
+                    console.log("still");
+                    var animateImgAddress = $(this).attr("data-animate");
+                        $(this).attr("src", animateImgAddress);
+                        $(this).attr("data-state","animate");
+                    }
+                else{
+                console.log("animate");
+                var animateImgAddress = $(this).attr("data-still");
+                      $(this).attr("src", animateImgAddress);
+                      $(this).attr("data-state","still");
+                };
 
           
           });
           
     
-  }
+  });
+}
 
   function getYoutubeAPI(){
 
