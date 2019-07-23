@@ -6,6 +6,8 @@ var publicYears;
 
 var actors; 
 
+var titleOfMovie;
+
 $("#searchBtn").on("click", function(event) {
 
  // Sheleeza's Part    
@@ -20,7 +22,10 @@ $("#searchBtn").on("click", function(event) {
 
 /*Yating's part */
 
-          getYoutubeAPI();
+    setTimeout(() => {
+      getYoutubeAPI();
+    }, 300);
+      
 
  /*   Jenny's part   */
 
@@ -38,6 +43,7 @@ $("#searchBtn").on("click", function(event) {
       method: "GET"
     }).then(function(response) {
       $("#title").html("Title: " + response.Title);
+      titleOfMovie = response.Title;
     //  $("").html("Rating: " + response.Ratings[1].Value + " Rotten Tomatoes");
       $("#year").html("Released: " + response.Released);
       publicYears = response.Year;// this is the publish year
@@ -107,7 +113,7 @@ $("#searchBtn").on("click", function(event) {
 
   function getYoutubeAPI(){
 
-    var searchResult = $("#search").val() +"+"+ publicYears;
+    var searchResult = titleOfMovie +"+"+ publicYears;
     var queryYoutubeURL ="https://www.googleapis.com/youtube/v3/search?part=snippet&order=relevance&q="+escape (searchResult) +"+trailer&relevanceLanguage=en&type=video&videoDuration=short&key=";
     var apiKey = "AIzaSyAoUpHDyYUhHngLH318GbQdHVDHiNPLFXQ";
     $.ajax({
