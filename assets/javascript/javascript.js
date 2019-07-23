@@ -28,14 +28,14 @@ $("#searchBtn").on("click", function(event) {
       
 
  /*   Jenny's part   */
-      $("#actorGif").empty();
+      $("#actorGif").html("");
       setTimeout(() =>{
-        var str = actors.split(",");
-        console.log(str);
-        for (var i=0; i < str.length; i++){
-                 getGiphyAPI(str[i]);
+        // var str = actors.split(",");
+        // console.log(str);
+        // for (var i=0; i < str.length; i++){
+                 getGiphyAPI(titleOfMovie);
                 
-        }
+        // }
       },2000);
     
      
@@ -78,7 +78,7 @@ $("#searchBtn").on("click", function(event) {
   function getGiphyAPI(img){
     
           var queryGifURL = "https://api.giphy.com/v1/gifs/search?api_key=6kzr50l8dlgEaOOVqe1VMiOwUmuGt3p6&q=" 
-          + escape(img) + "&limit=1&offset=0&lang=en";
+          + escape(img) + "&limit=3&offset=0&lang=en";
 
        console.log(queryGifURL);
       $.ajax({
@@ -88,8 +88,10 @@ $("#searchBtn").on("click", function(event) {
       .then(function(response){
           console.log( 'got a response: ', response);
               var results = response.data;
-          //   for (var i = 0; i < results.length; i++) {
-          //       var actorDiv = $("<img>");
+            for (var i = 0; i < results.length; i++) {
+              $("#actorGif").append(`<img src = "${results[i].images.downsized_still.url}" 
+              >`);
+              }
           //   }
           console.log(results);
             //var image = results[0].images.fixed_height_still.url;
