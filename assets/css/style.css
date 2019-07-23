@@ -1,75 +1,85 @@
 title{font-family: 'Source Code Pro', monospace;
-    color: black;
-    font-size: 20px;
+  color: black;
+  font-size: 20px;
+  }
+  body {font-family: 'Source Code Pro', monospace;
+  font-size: 20px;
+  background-color:rgb(150, 142, 131);
+  height: 1000px;
+  }
+  h1{font-family: 'Source Code Pro', monospace;
+  font-size: 24px;
+  
+  }
+  h2{font-family: 'Source Code Pro', monospace;
+  font-size: 20px;
+  }
+  img.resize {
+      width: 10%;
+      height:10%;
+  float: left;}
+
+  .center{display: block;
+  margin-left: auto;
+margin-right: auto;
+padding: 12px;
+border-radius: 25px;
+}
+  
+  span{font-family: 'Source Code Pro', monospace;
+      font-size: 14px;}
+     
+  .dropbtn {
+      font-family: 'Source Code Pro', monospace;
+      background-color: #1f0303;
+      color: rgb(214, 133, 133);
+      padding: 12px;
+      font-size: 20px;
+      border: none;
     }
-    body {font-family: 'Source Code Pro', monospace;
-    font-size: 20px;
-    background-color:burlywood;
-    height: 1000px;
+    .dropdown {
+      display: inline-block;
+      font-family: 'Source Code Pro', monospace;
     }
-    h1{font-family: 'Source Code Pro', monospace;
-    font-size: 24px;
-    
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #1f0303;
+      min-width: 100px;
+      box-shadow: 0px 8px 16px 0px rgba(175, 128, 128, 0.733);
+      z-index: 1;
+      font-family: 'Source Code Pro', monospace;
     }
-    h2{font-family: 'Source Code Pro', monospace;
-    font-size: 20px;
+    .dropdown-content a {
+      color: black;
+      padding: 12px 20px;
+      text-decoration: none;
+      display: block;
     }
-    img.resize {
-        width: 10%;
-        height:10%;
-    float: left;}
-    
-    span{font-family: 'Source Code Pro', monospace;
-        font-size: 14px;}
-       
-    .dropbtn {
-        font-family: 'Source Code Pro', monospace;
-        background-color: #4CAF50;
-        color: rgb(39, 8, 8);
-        padding: 16px;
-        font-size: 20px;
-        border: none;
-      }
-      .dropdown {
-        position: sticky;
-        display: inline-block;
-        font-family: 'Source Code Pro', monospace;
-      }
-      .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #1f0303;
-        min-width: 100px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        z-index: 1;
-        font-family: 'Source Code Pro', monospace;
-      }
-      .dropdown-content a {
-        color: black;
-        padding: 12px 20px;
-        text-decoration: none;
-        display: block;
-      }
-      .dropdown-content a:hover {background-color: #ddd;}
-      .dropdown:hover .dropdown-content {display: block;}
-      .dropdown:hover .dropbtn {background-color: #3e8e41;}
-    #menuContainer {
-      position: fixed;
-      top: 0;
-    
-    }
-    .searchBtn {
+    .dropdown-content a:hover {background-color: #ddd;}
+    .dropdown:hover .dropdown-content {display: block;}
+    .dropdown:hover .dropbtn {background-color: #0d2b0e;}
+  #menuContainer {
+    position: relative;
+    text-outline: 0;
+  
+  }
+  html {
+    margin: 40px auto;
+  }
+  .btn-search {
       background: #424242;
-      border-radius: 0;
+      border-radius: 12px;
       color: #fff;
       border-width: 1px;
       border-style: solid;
       border-color: #1c1c1c;
-      font-family: 'Source Code Pro', monospace;
     }
-    .search.btn-search:active:link, .searchBtn:visited {
-        font-family: 'Source Code Pro', monospace;
+    .btn-search:link, .btn-search:visited {
       color: #fff;
     }
-    
-    
+    .btn-search:active, .btn-search:hover {
+      background: #1c1c1c;
+      color: #fff;
+    }
+ 
