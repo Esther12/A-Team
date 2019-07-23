@@ -6,6 +6,8 @@ var publicYears;
 
 var actors; 
 
+var titleOfMovie;
+
 $("#searchBtn").on("click", function(event) {
 
  // Sheleeza's Part    
@@ -14,17 +16,6 @@ $("#searchBtn").on("click", function(event) {
 
     getMovieAPI();
 
-    
-
-
-
-/*Yating's part */
-
-          getYoutubeAPI();
-
- /*   Jenny's part   */
-
-      getGiphyAPI();
 // console.log(p);
   });
 
@@ -38,6 +29,7 @@ $("#searchBtn").on("click", function(event) {
       method: "GET"
     }).then(function(response) {
       $("#title").html("Title: " + response.Title);
+      titleOfMovie = response.Title;
     //  $("").html("Rating: " + response.Ratings[1].Value + " Rotten Tomatoes");
       $("#year").html("Released: " + response.Released);
       publicYears = response.Year;// this is the publish year
@@ -55,15 +47,23 @@ $("#searchBtn").on("click", function(event) {
 
       console.log(response);
 
+      /*Yating's part */
+
+      getYoutubeAPI();
+
+       /*   Jenny's part   */
+       $("#actorGif").html("");
+       getGiphyAPI(titleOfMovie);
       $("#search").val("");
     });
   }
 
-  function getGiphyAPI(){
+  function getGiphyAPI(img){
+    
           var queryGifURL = "https://api.giphy.com/v1/gifs/search?api_key=6kzr50l8dlgEaOOVqe1VMiOwUmuGt3p6&q=" 
-          + p + "&limit=1&offset=0&lang=en";
+          + escape(img) + "&limit=3&offset=0&lang=en";
 
-      // console.log(queryURL);
+       console.log(queryGifURL);
       $.ajax({
           url: queryGifURL,
           method:"GET"
@@ -71,43 +71,41 @@ $("#searchBtn").on("click", function(event) {
       .then(function(response){
           console.log( 'got a response: ', response);
               var results = response.data;
-          //   for (var i = 0; i < results.length; i++) {
-          //       var actorDiv = $("<img>");
+            for (var i = 0; i < results.length; i++) {
+              $("#actorGif").append(`<img src = "${results[i].images.downsized_still.url}" 
+              data-still="${results[i].images.downsized_still.url}" 
+                    data-animate="${results[i].images.downsized.url} " data-state="still" class = "gif ">`);
+              }
           //   }
           console.log(results);
             //var image = results[0].images.fixed_height_still.url;
             //console.log(image);
-            $("#actorGif").append(`<img src = "${results[0].images.downsized_still.url}" 
-            data-still="${results[0].images.downsized_still.url}" 
-            data-animate="${results[0].images.downsized.url} " data-state="still" class = "gif ">`);
+  });
+}
 
-                  
-            $("#actorGif").on("click",".gif", function(){
-                      
-                var state = $(this).attr("data-state");
+$("#actorGif").on("click",".gif", function(){
+           
+  var state = $(this).attr("data-state");
 
-                if(state == "still"){
-                    console.log("still");
-                    var animateImgAddress = $(this).attr("data-animate");
-                        $(this).attr("src", animateImgAddress);
-                        $(this).attr("data-state","animate");
-                    }
-                else{
-                console.log("animate");
-                var animateImgAddress = $(this).attr("data-still");
-                      $(this).attr("src", animateImgAddress);
-                      $(this).attr("data-state","still");
-                };
+  if(state == "still"){
+      console.log("still");
+      var animateImgAddress = $(this).attr("data-animate");
+          $(this).attr("src", animateImgAddress);
+          $(this).attr("data-state","animate");
+      }
+  else{
+  console.log("animate");
+  var animateImgAddress = $(this).attr("data-still");
+        $(this).attr("src", animateImgAddress);
+        $(this).attr("data-state","still");
+  };
 
-          
-          });
-          
-          });
-  }
+
+});
 
   function getYoutubeAPI(){
 
-    var searchResult = $("#search").val() +"+"+ publicYears;
+    var searchResult = titleOfMovie +"+"+ publicYears;
     var queryYoutubeURL ="https://www.googleapis.com/youtube/v3/search?part=snippet&order=relevance&q="+escape (searchResult) +"+trailer&relevanceLanguage=en&type=video&videoDuration=short&key=";
     var apiKey = "AIzaSyAoUpHDyYUhHngLH318GbQdHVDHiNPLFXQ";
     $.ajax({
@@ -120,5 +118,7 @@ $("#searchBtn").on("click", function(event) {
                 var videoSrc = "https://www.youtube.com/embed/"+result;
                 console.log(videoSrc);
                 $("#videoTrailer").attr("src", videoSrc);
+
+                
         });
   }
