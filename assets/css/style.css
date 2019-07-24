@@ -44,9 +44,9 @@ border-radius: 25px;
     .dropdown-content {
       display: none;
       position: absolute;
-      background-color: grey
+      background-color: grey;
       min-width: 100px;
-      box-shadow: 0px 8px 16px 0px );
+      box-shadow: 0px 8px 16px 0px ;
       z-index: 1;
       font-family: 'Raleway', sans-serif;
     }
