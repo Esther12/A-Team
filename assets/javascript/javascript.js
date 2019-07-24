@@ -15,10 +15,7 @@ $("#searchBtn").on("click", function(event) {
     movie = $("#search").val();
 
     getMovieAPI();
-
     
-
-
 
 /*Yating's part */
 
