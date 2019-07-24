@@ -8,8 +8,12 @@ title{
   height: 1000px;
   }
   h1{
-  font-size: 24px;
-  
+  font-size: 40px;
+  color: beige;
+position: relative;
+  text-align: center;
+  padding-top: 300px
+
   }
   h2{
   font-size: 20px;
@@ -128,3 +132,13 @@ border-radius: 25px;
   width: 100%;
   height: auto;
 }
+img{width: 12%;
+height: 12%}
+
+.box {
+  background-image: url("../images/movy.jpeg");
+  height:95vh;
+  width: 100%;
+  position: center;
+background-repeat: no-repeat;
+background-size: cover;}
