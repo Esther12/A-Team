@@ -29,8 +29,6 @@ $("#searchBtn").on("click", function(event) {
     movie = $("#search").val();
 
     getMovieAPI();
-
-    
 // console.log(p);
   });
 
