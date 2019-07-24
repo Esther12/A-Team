@@ -66,12 +66,14 @@ $("#searchBtn").on("click", function(event) {
 
       
       /*   Jenny's part   */
-      $("#actorGif").html("");
+      $("#actorGif").empty();
       getGiphyAPI(titleOfMovie);
-     $("#search").val("");
+     $("#search").empty();
       /*Yating's part */
 
       getYoutubeAPI();
+      $("#messages").empty();
+      $("#name").empty();
       commentShow();
        
     });
@@ -151,6 +153,8 @@ $("#actorGif").on("click",".gif", function(){
 
     // Capture Button Click
     $("#submitComment").on("click", function(event) {
+      $("#messages").empty();
+      $("#name").empty();
       debugger;
       console.log("1111");
       event.preventDefault();
@@ -171,11 +175,11 @@ $("#actorGif").on("click",".gif", function(){
     });
       
     function commentShow(){
-      $("#messages").empty();
+     
       firebase.database().ref("comments").orderByChild("title").equalTo(titleOfMovie).on("child_added", function(movie) {
         console.log(movie.val());
         var commentDetial = movie.val();
-        $("#messages").append(`
+        $("#messages").prepend(`
               <div>
               <h4>${commentDetial.title}</h4>
               <p>${commentDetial.name}</p>
