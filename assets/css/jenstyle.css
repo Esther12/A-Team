@@ -1,0 +1,148 @@
+/* movie poster - details - youtube trailer */
+title{
+    color:grey;
+    font-size: 20px;
+    }
+    body {font-family: 'Darker Grotesque', sans-serif;
+    font-size: 20px;
+    background-color: black;
+    height: 1000px;
+    }
+    h1{
+    font-size: 24px;
+    
+    }
+    h2{
+    font-size: 20px;
+    }
+    img.resize {
+        width: 10%;
+        height:10%;
+    float: left;}
+  
+    .center{display: block;
+    margin-left: auto;
+  margin-right: auto;
+  padding: 12px;
+  border-radius: 25px;
+  }
+    
+    span{font-family: 'Raleway', sans-serif;
+        font-size: 14px;}
+       
+    .dropbtn {
+      font-family: 'Raleway', sans-serif;
+        background-color:black;
+        color:grey;
+        padding: 12px;
+        font-size: 20px;
+        border: none;
+      }
+      .dropdown {
+        display: inline-block;
+        font-family: 'Raleway', sans-serif;
+      }
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: grey
+        min-width: 100px;
+        box-shadow: 0px 8px 16px 0px );
+        z-index: 1;
+        font-family: 'Raleway', sans-serif;
+      }
+      .dropdown-content a {
+        color: black;
+        padding: 12px 20px;
+        text-decoration: none;
+        display: block;
+      }
+      .dropdown-content a:hover {background-color:grey;}
+      .dropdown:hover .dropdown-content {display: block;}
+      .dropdown:hover .dropbtn {background-color: #000000;}
+    #menuContainer {
+      position: relative;
+      text-outline: 0;
+    
+    }
+    html {
+      margin: 40px auto;
+    }
+  
+    .wrapper {
+      margin-left: 50px;
+      margin-right: 50px;
+      margin-top: 50px; 
+    }
+  
+    .btn-search {
+        background: #424242;
+        border-radius: 12px;
+        color: #fff;
+        border-width: 1px;
+        border-style: solid;
+        border-color: #1c1c1c;
+      }
+      .btn-search:link, .btn-search:visited {
+        color: #fff;
+      }
+      .btn-search:active, .btn-search:hover {
+        background: #1c1c1c;
+        color: #fff;
+      }
+      .row{
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0 4px;
+      }
+  
+   .column{
+     flex: 50%;
+     max-width: 50%;
+     padding:0 4px;
+  
+    
+   }
+  /* .column img{
+    margin-top: 8px;
+    vertical-align: middle;
+    width: 100%;
+  } */
+  .thumbnail {
+    position: relative;
+   height: 300px;
+    overflow: hidden;
+    border: 3px solid black;
+    padding: 3px;
+  }
+  .thumbnail img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    /* height: 100%;
+    width: auto; */
+    -webkit-transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+            transform: translate(-50%,-50%);
+  }
+  .thumbnail img.portrait {
+    width: 100%;
+    height: auto;
+  }
+  
+.wrapper {
+    display: flex;
+    width: 100%;
+}
+
+.poster {
+    width: 30%;
+}
+
+.details {
+    width: 20%;
+}
+
+.youtubeTrailer {
+    width: 50%;
+}
