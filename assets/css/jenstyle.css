@@ -65,3 +65,8 @@ textarea{
   height:300px;
   width:33%;
 }
+
+#messages{
+  height:500px;
+  width:60%;
+}
