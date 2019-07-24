@@ -8,39 +8,14 @@ var actors;
 
 var titleOfMovie;
 
-$("#searchBtn").on("click", function(event) {
+$(".searchBtn").on("click", function(event) {
 
+  console.log("btn clicked");
  // Sheleeza's Part    
     event.preventDefault();
     movie = $("#search").val();
 
     getMovieAPI();
-<<<<<<< HEAD
-    
-
-/*Yating's part */
-
-    setTimeout(() => {
-      getYoutubeAPI();
-    }, 300);
-      
-
- /*   Jenny's part   */
-      $("#actorGif").html("");
-      setTimeout(() =>{
-        // var str = actors.split(",");
-        // console.log(str);
-        // for (var i=0; i < str.length; i++){
-                 getGiphyAPI(titleOfMovie);
-                
-        // }
-      },2000);
-    
-     
-      
-=======
-
->>>>>>> b834e9c0c85b5d5e0259ae14695aa6ac57d9089d
 // console.log(p);
   });
 
@@ -48,6 +23,7 @@ $("#searchBtn").on("click", function(event) {
 
   function getMovieAPI(){
     var queryMovieURL = "https://www.omdbapi.com/?t=" + escape(movie) + "&apikey=trilogy";
+    console.log('omdb');
 
     $.ajax({
       url: queryMovieURL,
