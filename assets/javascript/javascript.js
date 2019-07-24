@@ -64,14 +64,16 @@ $("#searchBtn").on("click", function(event) {
 
       console.log(response);
 
+      
+      /*   Jenny's part   */
+      $("#actorGif").html("");
+      getGiphyAPI(titleOfMovie);
+     $("#search").val("");
       /*Yating's part */
 
       getYoutubeAPI();
       commentShow();
-       /*   Jenny's part   */
-       $("#actorGif").html("");
-       getGiphyAPI(titleOfMovie);
-      $("#search").val("");
+       
     });
   }
 
