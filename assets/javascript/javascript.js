@@ -24,6 +24,7 @@ var database = firebase.database();
 
 $("#searchBtn").on("click", function(event) {
 
+  console.log("btn clicked");
  // Sheleeza's Part    
     event.preventDefault();
     movie = $("#search").val();
@@ -38,6 +39,7 @@ $("#searchBtn").on("click", function(event) {
 
   function getMovieAPI(){
     var queryMovieURL = "https://www.omdbapi.com/?t=" + escape(movie) + "&apikey=trilogy";
+    console.log('omdb');
 
     $.ajax({
       url: queryMovieURL,
