@@ -30,8 +30,6 @@ $("#searchBtn").on("click", function(event) {
     movie = $("#search").val();
 
     getMovieAPI();
-
-    
 // console.log(p);
   });
 
@@ -66,12 +64,14 @@ $("#searchBtn").on("click", function(event) {
 
       
       /*   Jenny's part   */
-      $("#actorGif").html("");
+      $("#actorGif").empty();
       getGiphyAPI(titleOfMovie);
-     $("#search").val("");
+     $("#search").empty();
       /*Yating's part */
 
       getYoutubeAPI();
+      $("#messages").val("");
+      $("#name").val("");
       commentShow();
        
     });
@@ -151,7 +151,9 @@ $("#actorGif").on("click",".gif", function(){
 
     // Capture Button Click
     $("#submitComment").on("click", function(event) {
-      debugger;
+      $("#messages").val("");
+      $("#name").val("");
+      //debugger;
       console.log("1111");
       event.preventDefault();
 
@@ -171,14 +173,14 @@ $("#actorGif").on("click",".gif", function(){
     });
       
     function commentShow(){
-      $("#messages").empty();
+     
       firebase.database().ref("comments").orderByChild("title").equalTo(titleOfMovie).on("child_added", function(movie) {
         console.log(movie.val());
         var commentDetial = movie.val();
-        $("#messages").append(`
+        $("#messages").prepend(`
               <div>
               <h4>${commentDetial.title}</h4>
-              <p>${commentDetial.name}</p>
+              <p>User :   ${commentDetial.name}</p>
               <p>${commentDetial.comment}</p>
               </div>
           `);
