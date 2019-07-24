@@ -35,19 +35,20 @@ body{
 .wrapper {
     display: flex;
     width: 100%;
+    justify-content: space-around;
 }
 
 .poster {
-    width: 30%;
+    width: 25%;
 }
 
 .details {
-    width: 20%;
+    width: 25%;
     color: white;
 }
 
 .youtubeTrailer {
-    width: 50%;
+    width: 40%;
 }
 
 input{
@@ -55,4 +56,12 @@ input{
 }
 textarea{
   background-color: transparent;
+}
+.center{
+  border:none;
+  float: right;
+}
+.gif{
+  height:300px;
+  width:33%;
 }

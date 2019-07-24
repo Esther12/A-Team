@@ -72,8 +72,8 @@ $("#searchBtn").on("click", function(event) {
       /*Yating's part */
 
       getYoutubeAPI();
-      $("#messages").empty();
-      $("#name").empty();
+      $("#messages").val("");
+      $("#name").val("");
       commentShow();
        
     });
@@ -153,9 +153,9 @@ $("#actorGif").on("click",".gif", function(){
 
     // Capture Button Click
     $("#submitComment").on("click", function(event) {
-      $("#messages").empty();
-      $("#name").empty();
-      debugger;
+      $("#messages").val("");
+      $("#name").val("");
+      //debugger;
       console.log("1111");
       event.preventDefault();
 
@@ -182,7 +182,7 @@ $("#actorGif").on("click",".gif", function(){
         $("#messages").prepend(`
               <div>
               <h4>${commentDetial.title}</h4>
-              <p>${commentDetial.name}</p>
+              <p>User :   ${commentDetial.name}</p>
               <p>${commentDetial.comment}</p>
               </div>
           `);
