@@ -15,32 +15,6 @@ $("#searchBtn").on("click", function(event) {
     movie = $("#search").val();
 
     getMovieAPI();
-<<<<<<< HEAD
-    
-
-/*Yating's part */
-
-    setTimeout(() => {
-      getYoutubeAPI();
-    }, 300);
-      
-
- /*   Jenny's part   */
-      $("#actorGif").html("");
-      setTimeout(() =>{
-        // var str = actors.split(",");
-        // console.log(str);
-        // for (var i=0; i < str.length; i++){
-                 getGiphyAPI(titleOfMovie);
-                
-        // }
-      },2000);
-    
-     
-      
-=======
-
->>>>>>> b834e9c0c85b5d5e0259ae14695aa6ac57d9089d
 // console.log(p);
   });
 
