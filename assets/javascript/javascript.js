@@ -67,11 +67,11 @@ $("#searchBtn").on("click", function(event) {
       $("#actorGif").empty();
       getGiphyAPI(titleOfMovie);
      $("#search").empty();
+     
       /*Yating's part */
-
       getYoutubeAPI();
-      $("#messages").val("");
-      $("#name").val("");
+      // $("#messages").val("");
+      // $("#name").val("");
       commentShow();
        
     });
@@ -151,7 +151,11 @@ $("#actorGif").on("click",".gif", function(){
 
     // Capture Button Click
     $("#submitComment").on("click", function(event) {
+<<<<<<< HEAD
     
+=======
+      
+>>>>>>> 76f157b65361ee825cb625e84fefbb794fa6cc9a
       //debugger;
       console.log("1111");
       event.preventDefault();
@@ -177,7 +181,7 @@ $("#actorGif").on("click",".gif", function(){
         console.log(movie.val());
         var commentDetial = movie.val();
         $("#messages").prepend(`
-              <div>
+              <div class = "omment">
               <h4>${commentDetial.title}</h4>
               <p>User :   ${commentDetial.name}</p>
               <p>${commentDetial.comment}</p>
@@ -185,6 +189,10 @@ $("#actorGif").on("click",".gif", function(){
           `);
        });
        $("#messages").val("");
+<<<<<<< HEAD
       $("#name").val("");
+=======
+       $("#name").val("");
+>>>>>>> 76f157b65361ee825cb625e84fefbb794fa6cc9a
     }
       
