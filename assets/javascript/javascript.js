@@ -151,8 +151,7 @@ $("#actorGif").on("click",".gif", function(){
 
     // Capture Button Click
     $("#submitComment").on("click", function(event) {
-      $("#messages").val("");
-      $("#name").val("");
+    
       //debugger;
       console.log("1111");
       event.preventDefault();
@@ -185,6 +184,7 @@ $("#actorGif").on("click",".gif", function(){
               </div>
           `);
        });
-       console.log(ref1);
+       $("#messages").val("");
+      $("#name").val("");
     }
       
