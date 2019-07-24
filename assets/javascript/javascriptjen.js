@@ -31,22 +31,22 @@ $.ajax({
         }
 
                
-        $("#actorGif").on("click",".gif", function(){
+      //   $("#actorGif").on("click",".gif", function(){
                   
-            var state = $(this).attr("data-state");
+      //       var state = $(this).attr("data-state");
 
-            if(state == "still"){
-                console.log("still");
-                var animateImgAddress = $(this).attr("data-animate");
-                    $(this).attr("src", animateImgAddress);
-                    $(this).attr("data-state","animate");
-                }
-            else{
-            console.log("animate")
-            var animateImgAddress = $(this).attr("data-still");
-                  $(this).attr("src", animateImgAddress);
-                  $(this).attr("data-state","still")
-            }
+      //       if(state == "still"){
+      //           console.log("still");
+      //           var animateImgAddress = $(this).attr("data-animate");
+      //               $(this).attr("src", animateImgAddress);
+      //               $(this).attr("data-state","animate");
+      //           }
+      //       else{
+      //       console.log("animate")
+      //       var animateImgAddress = $(this).attr("data-still");
+      //             $(this).attr("src", animateImgAddress);
+      //             $(this).attr("data-state","still")
+      //       }
 
       
       }
