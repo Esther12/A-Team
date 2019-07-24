@@ -9,7 +9,7 @@ var actors;
 var titleOfMovie;
 
 var firebaseConfig = {
-  apiKey: "AIzaSyB4o9RSM4MuAdY7LklNwhWoeux1mYFbQ0k",
+  apiKey: "  ",
   authDomain: "a-team-2032f.firebaseapp.com",
   databaseURL: "https://a-team-2032f.firebaseio.com",
   projectId: "a-team-2032f",
