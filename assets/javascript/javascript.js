@@ -15,6 +15,7 @@ $("#searchBtn").on("click", function(event) {
     movie = $("#search").val();
 
     getMovieAPI();
+<<<<<<< HEAD
     
 
 /*Yating's part */
@@ -37,6 +38,9 @@ $("#searchBtn").on("click", function(event) {
     
      
       
+=======
+
+>>>>>>> b834e9c0c85b5d5e0259ae14695aa6ac57d9089d
 // console.log(p);
   });
 
@@ -68,6 +72,13 @@ $("#searchBtn").on("click", function(event) {
 
       console.log(response);
 
+      /*Yating's part */
+
+      getYoutubeAPI();
+
+       /*   Jenny's part   */
+       $("#actorGif").html("");
+       getGiphyAPI(titleOfMovie);
       $("#search").val("");
     });
   }
@@ -94,31 +105,28 @@ $("#searchBtn").on("click", function(event) {
           console.log(results);
             //var image = results[0].images.fixed_height_still.url;
             //console.log(image);
-            
-                  
-            $("#actorGif").on("click",".gif", function(){
-           
-                var state = $(this).attr("data-state");
-
-                if(state == "still"){
-                    console.log("still");
-                    var animateImgAddress = $(this).attr("data-animate");
-                        $(this).attr("src", animateImgAddress);
-                        $(this).attr("data-state","animate");
-                    }
-                else{
-                console.log("animate");
-                var animateImgAddress = $(this).attr("data-still");
-                      $(this).attr("src", animateImgAddress);
-                      $(this).attr("data-state","still");
-                };
-
-          
-          });
-          
-    
   });
 }
+
+$("#actorGif").on("click",".gif", function(){
+           
+  var state = $(this).attr("data-state");
+
+  if(state == "still"){
+      console.log("still");
+      var animateImgAddress = $(this).attr("data-animate");
+          $(this).attr("src", animateImgAddress);
+          $(this).attr("data-state","animate");
+      }
+  else{
+  console.log("animate");
+  var animateImgAddress = $(this).attr("data-still");
+        $(this).attr("src", animateImgAddress);
+        $(this).attr("data-state","still");
+  };
+
+
+});
 
   function getYoutubeAPI(){
 
@@ -135,5 +143,7 @@ $("#searchBtn").on("click", function(event) {
                 var videoSrc = "https://www.youtube.com/embed/"+result;
                 console.log(videoSrc);
                 $("#videoTrailer").attr("src", videoSrc);
+
+                
         });
   }
