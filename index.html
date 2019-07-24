@@ -11,58 +11,45 @@
     <title>Document</title>
 </head>
 <body>
-
-
+    <!-- <style>
+      body {
+    /* background-image: url("assets/images/movy.jpeg"); */
+    background-color: #cccccc;
+    background-repeat: no-repeat, repeat;
+    /* background-attachment: fixed; */
+    background-position: center; 
+    background-size: cover;
+    }
+    </style> -->
     
-      <!-- Left and right controls -->
-      <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="right carousel-control" href="#myCarousel" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div>
-<select class="mdb-select md-form colorful-select dropdown-primary" searchable="Search here..">
-    <option value="1">Actors</option>
-    <option value="2">Title</option>
-    <option value="3">Rating</option>
-    <option value="4">Genre</option>
-</select>
-  <label class="mdb-main-label">Movie Search</label>
- 
-<form>               
-<input id="search">
-<button id="searchBtn">Search</button>
-</form>
-<p id="year"></p>
-<p id="rating"></p>
-<p id="duration"></p>
-<p id="genre"></p>
-<img id="poster">
-<div style="text-align: center;"></div>
-<iframe  id="videoTrailer" class="center" width="560" height="315" src="https://www.youtube.com/embed/1vypS2LBvMw" frameborder="10" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-<p id="description"></p>
-<p id="directors"></p>
-<p id="actors"></p>
-<div id="actorGif"></div>
-<p id="userName"></p>
-<textarea id="comment"></textarea>
-<button id="submitComment"></button>
-</div>
+    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light"> -->
+        <!-- <a class="navbar-brand" href="#"><img src="vcr.jpeg" alt="vcr">    A-TEAM</a> -->
+        <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span> -->
+        <!-- </button> </nav> -->
+       
+        <div class="box" >
+          <div class=blackO>
+            <h1><b>A one stop shop to your favourite VHS's without having to go to a Blockbuster!</b> </h1>
 
-</div>  
-<h1>Comments</h1>
-<input type="text" name="name" id="name" placeholder="Name"  />
-<textarea type="text" name="message" id="message" placeholder="Message" ></textarea>
-<button class = "btn btn-info"id="submitComment">Send</button>
-<div id="messages">
-</div>  
-        
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-            <script src="https://www.gstatic.com/firebasejs/6.3.0/firebase-app.js"></script>
-            <script src="https://www.gstatic.com/firebasejs/6.3.0/firebase-database.js"></script>
-            <script src="./assets/javascript/javascript.js"></script>
+             <p> <b> Search below to discover movies, video trailer, GIFs and don't forget to leave a comment!</b> </p>
+          </div>
+        </div>
+
+       
+      </div>
+            
+
+      <div class="input-group " style='width: 400px; margin-top: 50px; margin-left: auto; margin-right: auto;'>
+          <input type="text" class="form-control w-50 " placeholder="Search Movies" aria-label="Search" aria-describedby="basic-addon2">
+          <div class="input-group-append">
+              <span class="input-group-text" id="basic-addon2">Search</span>
+          </div>
+        </div>
+       
+
+  </div>
+
+
 </body>
+</html>

@@ -1,6 +1,11 @@
+p {
+  font-size: 24px;
+text-align: center}
+ 
+
 title{
   color:grey;
-  font-size: 20px;
+  font-size: 0px;
   }
   body {font-family: 'Darker Grotesque', sans-serif;
   font-size: 20px;
@@ -8,8 +13,12 @@ title{
   height: 1000px;
   }
   h1{
-  font-size: 24px;
-  
+  font-size: 40px;
+  color: beige;
+position: relative;
+  text-align: center;
+  padding-top: 25px
+
   }
   h2{
   font-size: 20px;
@@ -29,44 +38,7 @@ border-radius: 25px;
   span{font-family: 'Raleway', sans-serif;
       font-size: 14px;}
      
-  .dropbtn {
-    font-family: 'Raleway', sans-serif;
-      background-color:black;
-      color:grey;
-      padding: 12px;
-      font-size: 20px;
-      border: none;
-    }
-    .dropdown {
-      display: inline-block;
-      font-family: 'Raleway', sans-serif;
-    }
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: grey;
-      min-width: 100px;
-      box-shadow: 0px 8px 16px 0px ;
-      z-index: 1;
-      font-family: 'Raleway', sans-serif;
-    }
-    .dropdown-content a {
-      color: black;
-      padding: 12px 20px;
-      text-decoration: none;
-      display: block;
-    }
-    .dropdown-content a:hover {background-color:grey;}
-    .dropdown:hover .dropdown-content {display: block;}
-    .dropdown:hover .dropbtn {background-color: #000000;}
-  #menuContainer {
-    position: relative;
-    text-outline: 0;
-  
-  }
-  html {
-    margin: 40px auto;
-  }
+ 
 
   .wrapper {
     margin-left: 50px;
@@ -128,3 +100,21 @@ border-radius: 25px;
   width: 100%;
   height: auto;
 }
+img{width: 12%;
+height: 12%}
+
+.box {
+  background-image: url("../images/VHS.jpeg");
+  position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 500px; 
+}
+
+.blackO{
+  position: relative;
+  width:100%;
+  height:100%;
+  background-color: rgba(0,0,0,.7);
+  color: white;
+} 
