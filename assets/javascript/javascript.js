@@ -8,7 +8,25 @@ var actors;
 
 var titleOfMovie;
 
+<<<<<<< HEAD
 $(".searchBtn").on("click", function(event) {
+=======
+var firebaseConfig = {
+  apiKey: "AIzaSyB4o9RSM4MuAdY7LklNwhWoeux1mYFbQ0k",
+  authDomain: "a-team-2032f.firebaseapp.com",
+  databaseURL: "https://a-team-2032f.firebaseio.com",
+  projectId: "a-team-2032f",
+  storageBucket: "",
+  messagingSenderId: "205258806058",
+  appId: "1:205258806058:web:8a852d12dfb4b8eb"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+var database = firebase.database();
+
+$("#searchBtn").on("click", function(event) {
+>>>>>>> ea0a07ea28b025760dd8e8382d9f292f6f31838b
 
   console.log("btn clicked");
  // Sheleeza's Part    
@@ -51,7 +69,7 @@ $(".searchBtn").on("click", function(event) {
       /*Yating's part */
 
       getYoutubeAPI();
-
+      commentShow();
        /*   Jenny's part   */
        $("#actorGif").html("");
        getGiphyAPI(titleOfMovie);
@@ -108,7 +126,7 @@ $("#actorGif").on("click",".gif", function(){
 
     var searchResult = titleOfMovie +"+"+ publicYears;
     var queryYoutubeURL ="https://www.googleapis.com/youtube/v3/search?part=snippet&order=relevance&q="+escape (searchResult) +"+trailer&relevanceLanguage=en&type=video&videoDuration=short&key=";
-    var apiKey = "AIzaSyAoUpHDyYUhHngLH318GbQdHVDHiNPLFXQ";
+    var apiKey = "AIzaSyA6JVzEaTSEgPcgCKyIaIwQW8S-RuEbw3s";
     $.ajax({
             url: queryYoutubeURL + apiKey,
             method:"GET"
@@ -123,3 +141,48 @@ $("#actorGif").on("click",".gif", function(){
                 
         });
   }
+  // Your web app's Firebase configuration
+ 
+
+
+  var title = "";
+  var userName = "";
+  var userComments = "";
+
+    // Capture Button Click
+    $("#submitComment").on("click", function(event) {
+      debugger;
+      console.log("1111");
+      event.preventDefault();
+
+      // Grabbed values from text boxes
+      title = titleOfMovie;
+      userName = $("#name").val();
+      userComments = $("#message").val();
+      console.log(title);
+      // Code for handling the push
+      database.ref("comments").push({
+        title: title,
+        name: userName,
+        comment: userComments,
+        dateAdded: firebase.database.ServerValue.TIMESTAMP
+      });
+      commentShow();
+    });
+      
+    function commentShow(){
+      $("#messages").empty();
+      firebase.database().ref("comments").orderByChild("title").equalTo(titleOfMovie).on("child_added", function(movie) {
+        console.log(movie.val());
+        var commentDetial = movie.val();
+        $("#messages").append(`
+              <div>
+              <h4>${commentDetial.title}</h4>
+              <p>${commentDetial.name}</p>
+              <p>${commentDetial.comment}</p>
+              </div>
+          `);
+       });
+       console.log(ref1);
+    }
+      
