@@ -189,10 +189,6 @@ $("#actorGif").on("click",".gif", function(){
           `);
        });
        $("#messages").val("");
-<<<<<<< HEAD
-      $("#name").val("");
-=======
        $("#name").val("");
->>>>>>> 76f157b65361ee825cb625e84fefbb794fa6cc9a
     }
       
