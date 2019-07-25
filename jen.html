@@ -31,33 +31,52 @@
       
    <br>
   <!-- Jenny working on wrapper for search contents -->
-  <form>     
+  <form class="mb-5">     
       <div class="input-group indexInput">
           <input type="text" class="form-control w-20 " id="search" placeholder="Search Movies" aria-label="Search" aria-describedby="basic-addon2">
           <button class = "btn btn-info" id="searchBtn">Search</button>
           </div>          
   </form>
-      <div class = "my-auto wrapper ">
-        <div class = "poster">
-        <img id="poster">
+      <div class = "mt-5 p-5 row">
+        <div class = "col-4 poster">
+        <img id="poster" src="/assets/images/product.jpg">
         </div>
-        <div class = "details">
-            <p id="year"></p>
-            <p id="rating"></p>
-            <p id="duration"></p>
-            <p id="genre"></p>
-            <p id="description"></p>
-            <p id="directors"></p>
-            <p id="actors"></p>
-        </div>
-          <div class="youtubeTrailer">
-          <iframe  id="videoTrailer" class="center" width="560" height="315" src="https://www.youtube.com/embed/1vypS2LBvMw" frameborder="10" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+        <div class="col-8">
+          <div class = "row">
+            <div class=" col-12 youtubeTrailer">
+                <iframe  id="videoTrailer" width="700" height="400" src="https://www.youtube.com/embed/ZGZX5-PAwR8" frameborder="10" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                </div>
+            <div class = "col-12 details">
+                <p id="year"></p>
+                <p id="rating"></p>
+                <p id="duration"></p>
+                <p id="genre"></p>
+                <p id="description"></p>
+                <p id="directors"></p>
+                <p id="actors"></p>
+            </div>
           </div>
+          
+        </div>
         </div>
         <div id="actorGif"></div>
-            <input id="name">
-            <textarea id="message"></textarea>
-            <button class = "btn btn-info" id="submitComment">Submit</button>
+
+        <form class="col-9 mx-auto my-auto">
+          <div class="form-group">
+            <label for="exampleFormControlInput1">User Name:  </label>
+            <input type="email" class="form-control" id="name"  id="exampleFormControlInput1" placeholder="name">
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Comment</label>
+            <textarea class="form-control" id="message" id="exampleFormControlTextarea1" rows="3"></textarea>
+          </div>
+          <button class = "btn btn-info" id="submitComment">Submit</button>
+        </form>
+            <!-- <lable>User Name:</lable>
+            <input id="name"/>
+            <label>Comment:</label>
+            <textarea id="message"></textarea> -->
+            
         <div id="messages">
 
         </div>

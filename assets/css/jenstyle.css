@@ -62,24 +62,11 @@ margin-right: auto;
 .headText{
 padding-top: 20%;
 }
-
-.wrapper {
-    display: flex;
-    width: 100%;
-    justify-content: space-around;
+#poster{
+  width:100%;
 }
-
-.poster {
-    width: 25%;
-}
-
-.details {
-    width: 25%;
-    color: white;
-}
-
-.youtubeTrailer {
-    width: 40%;
+#videoTrailer{
+  border:none;
 }
 
 input{
@@ -93,11 +80,19 @@ textarea{
   float: right;
 }
 .gif{
-  height:300px;
-  width:33%;
+  height:220px;
+  width:20%;
 }
 
 #messages{
   height:500px;
-  width:60%;
+  width:75%;
+  margin:auto;
+}
+.comment{
+  background-color: #bdc3c7;
+  width:100%;
+  border-radius: 10px;
+  padding: 15px;
+  margin:10px;
 }

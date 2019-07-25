@@ -28,6 +28,7 @@ $("#searchBtn").on("click", function(event) {
  // Sheleeza's Part    
     event.preventDefault();
     movie = $("#search").val();
+    $("#message").empty();
 
     getMovieAPI();
 // console.log(p);
@@ -72,6 +73,7 @@ $("#searchBtn").on("click", function(event) {
       getYoutubeAPI();
       // $("#messages").val("");
       // $("#name").val("");
+      
       commentShow();
        
     });
@@ -80,7 +82,7 @@ $("#searchBtn").on("click", function(event) {
   function getGiphyAPI(img){
     
           var queryGifURL = "https://api.giphy.com/v1/gifs/search?api_key=6kzr50l8dlgEaOOVqe1VMiOwUmuGt3p6&q=" 
-          + escape(img) + "&limit=3&offset=0&lang=en";
+          + escape(img) + "&limit=5&offset=0&lang=en";
 
        console.log(queryGifURL);
       $.ajax({
@@ -137,8 +139,7 @@ $("#actorGif").on("click",".gif", function(){
                 var videoSrc = "https://www.youtube.com/embed/"+result;
                 console.log(videoSrc);
                 $("#videoTrailer").attr("src", videoSrc);
-
-                
+     
         });
   }
   // Your web app's Firebase configuration
@@ -152,6 +153,8 @@ $("#actorGif").on("click",".gif", function(){
     // Capture Button Click
     $("#submitComment").on("click", function(event) {
       
+      $("#messages").val("");
+      $("#name").val("");
       //debugger;
       console.log("1111");
       event.preventDefault();
@@ -169,6 +172,7 @@ $("#actorGif").on("click",".gif", function(){
         dateAdded: firebase.database.ServerValue.TIMESTAMP
       });
       commentShow();
+     
     });
       
     function commentShow(){
@@ -177,7 +181,7 @@ $("#actorGif").on("click",".gif", function(){
         console.log(movie.val());
         var commentDetial = movie.val();
         $("#messages").prepend(`
-              <div class = "omment">
+              <div class = "comment">
               <h4>${commentDetial.title}</h4>
               <p>User :   ${commentDetial.name}</p>
               <p>${commentDetial.comment}</p>
