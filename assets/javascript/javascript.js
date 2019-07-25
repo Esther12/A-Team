@@ -151,11 +151,7 @@ $("#actorGif").on("click",".gif", function(){
 
     // Capture Button Click
     $("#submitComment").on("click", function(event) {
-<<<<<<< HEAD
-    
-=======
       
->>>>>>> 76f157b65361ee825cb625e84fefbb794fa6cc9a
       //debugger;
       console.log("1111");
       event.preventDefault();
