@@ -28,7 +28,7 @@ $("#searchBtn").on("click", function(event) {
  // Sheleeza's Part    
     event.preventDefault();
     movie = $("#search").val();
-    $("#message").empty();
+    $("#message").html("  ");
 
     getMovieAPI();
 // console.log(p);
@@ -153,8 +153,6 @@ $("#actorGif").on("click",".gif", function(){
     // Capture Button Click
     $("#submitComment").on("click", function(event) {
       
-      $("#messages").val("");
-      $("#name").val("");
       //debugger;
       console.log("1111");
       event.preventDefault();

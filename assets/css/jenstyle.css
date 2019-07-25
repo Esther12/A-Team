@@ -96,3 +96,6 @@ textarea{
   padding: 15px;
   margin:10px;
 }
+.display{
+  display: none;
+}
