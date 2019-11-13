@@ -8,10 +8,8 @@ var actors;
 
 var titleOfMovie;
 
-var fir_api = config.FIRE_BASE_KEY;
-var move_api = config.MOVIE_KEY;
 var firebaseConfig = {
-  apiKey: fir_api,
+  apiKey: "AIzaSyB4o9RSM4MuAdY7LklNwhWoeux1mYFbQ0k",
   authDomain: "a-team-2032f.firebaseapp.com",
   databaseURL: "https://a-team-2032f.firebaseio.com",
   projectId: "a-team-2032f",
@@ -36,7 +34,8 @@ $("#searchBtn").on("click", function(event) {
 });
 
 function getMovieAPI() {
-  var queryMovieURL = "https://www.omdbapi.com/?t=" + escape(movie) + move_api;
+  var queryMovieURL =
+    "https://www.omdbapi.com/?t=" + escape(movie) + "&apikey=trilogy";
   console.log("omdb");
 
   $.ajax({
@@ -75,12 +74,10 @@ function getMovieAPI() {
     commentShow();
   });
 }
-var gify_api = config.GIFFY_KEY;
+
 function getGiphyAPI(img) {
   var queryGifURL =
-    "https://api.giphy.com/v1/gifs/search?api_key=" +
-    gify_api +
-    "&q=" +
+    "https://api.giphy.com/v1/gifs/search?api_key=6kzr50l8dlgEaOOVqe1VMiOwUmuGt3p6&q=" +
     escape(img) +
     "&limit=5&offset=0&lang=en";
 
@@ -126,7 +123,7 @@ function getYoutubeAPI() {
     "https://www.googleapis.com/youtube/v3/search?part=snippet&order=relevance&q=" +
     escape(searchResult) +
     "+trailer&relevanceLanguage=en&type=video&videoDuration=short&key=";
-  var apiKey = config.YOUTUBE_KEY;
+  var apiKey = "AIzaSyA6JVzEaTSEgPcgCKyIaIwQW8S-RuEbw3s";
   $.ajax({
     url: queryYoutubeURL + apiKey,
     method: "GET"
