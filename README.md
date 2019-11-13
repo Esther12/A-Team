@@ -38,5 +38,5 @@ Deployed on [GitHub Page](https://esther12.github.io/A-Team/) click and `check!!
 
 ## Authors
 
-* **Yating (Esther) Su** - [Movie Search Engine](https://github.com/Esther12/A-team/
+* **Yating (Esther) Su** - [Movie Search Engine](https://github.com/Esther12/A-team/)
 
